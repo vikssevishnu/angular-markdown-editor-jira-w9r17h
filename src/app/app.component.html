@@ -1,0 +1,75 @@
+<div class="container">
+  <h3>Create Custom Messages</h3>
+
+  <!-- <a
+    href="https://trungk18.com/experience/angular-jira-clone-tutorial-06-angular-markdown-text-editor/"
+  >
+    https://trungk18.com/experience/angular-jira-clone-tutorial-06-angular-markdown-text-editor/
+  </a> -->
+  <div class="hide">
+    <div class="mb-4"></div>
+
+    <h3>Markdown Editor</h3>
+    <h4>1. Standalone</h4>
+    <markdown-editor></markdown-editor>
+    <div class="mb-4"></div>
+
+    <h4>2. Inside a Form</h4>
+    <form [formGroup]="markdownForm">
+      <div class="form-group" style="display:none">
+        <label for="Title">Title</label>
+        <input
+          formControlName="title"
+          class="form-control"
+          id="Title"
+          aria-describedby="Title"
+        />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <markdown-editor [control]="descriptionRawControl"></markdown-editor>
+      </div>
+    </form>
+    <div class="alert alert-info hide">
+      {{ markdownForm.value | json }}
+    </div>
+  </div>
+  <hr />
+
+  <div class="hide">
+    <h3>Rich Text Editor</h3>
+    <h4>1. Standalone</h4>
+    <rich-text-editor></rich-text-editor>
+    <div class="mb-4"></div>
+  </div>
+  <h4 class="hide">2. Inside a Form</h4>
+  <form [formGroup]="richTextForm">
+    <div class="form-group">
+      <label for="Title">Message Title</label>
+      <input
+        formControlName="title"
+        class="form-control"
+        id="Title"
+        aria-describedby="Title"
+      />
+    </div>
+    <div class="form-group" style="border:1px solid">
+      <label>Message Description</label>
+      <rich-text-editor [control]="descriptionRichControl"></rich-text-editor>
+      <br />
+      <input id="imgPath" />
+      <span
+        style="padding:5px;margin-left:10px;background-color:#b5a268"
+        value="Submit"
+      >
+        <a> Upload Image </a>
+      </span>
+      <label>Start Date</label>
+    </div>
+  </form>
+  <div class="alert alert-info hide">
+    {{ richTextForm.value | json }}
+  </div>
+
+  <div class="mb-4"></div>
+</div>
